@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
+    <div id="app"></div>
+    <script>
+      const vm = Vue.createApp({
+            data() {
+                return {
+                    text2: "Hola VUE",
+                    text: "Puerta cerrada",
+                    open: false,
+                    counter: 0,
+                    valor: true,
+                    title: "",
+                    description: ""
+                };
+            },
+            watch: {
+                open(value) {
+                    if(this.counter <= 10) {
+                    this.counter++
+                    if (value) {
+                        this.text = "Puerta abierta"
+           
+                    } else {
+                        this.text = "Puerta cerrada"
+             
+                    }
+                 }
+                },
+              
+            },
+            methods: {
+                counter1(){
+                    if (this.counter > 10) {
+                        
+                        this.open = !this.open
+                        this.text = "MARIQUITO"
+
+                        setTimeout(this.lol, 100)
+                    }
+                },
+                 lol() {
+                        console.log("prueba")
+                        this.open = !this.open
+                        this.text = "MARIQUITO"
+                        setTimeout(this.counter1, 100)
+                    },
+                prueba(){
+                    if(this.counter <=10){
+                    this.open=!this.open
+                    console.log("hola")
+                    }
+                    if (this.counter === 11) {
+                        this.counter++
+                        this.valor = !this.valor
+                        console.log("Esto no")
+                        this.counter1()
+                     }
+                },
+
+                prueba2(){
+                    console.log("HOLIWIS")
+                    this.$apollo
+                    .query({
+                        query: LOGIN_QUERY,
+                        fetchPolicy: "network-only",
+                        variables: {
+                            title: this.email,
+                            description: this.password
+                        }
+                    })
+                }
+
+            },
+            computed: {
+                
+
+                redgreen() { 
+                    return this.open? ['open']: ['closed']
+                },
+                
+                label() {
+                    return this.open ? "Cerrar" : "Abrir";
+                },
+                button2(){
+                    if (this.valor) {
+                    return this.open? ['rojo'] : ['verde'];
+                    }
+                    else if (!this.valor) {
+                        return ['rojo2']
+                    }
+                }
+            },
+
+            template: `
+             <div class="container" :class="redgreen">
+                <h2>{{ text }}</h2>
+                <button :class="button2" @click="prueba">{{label}}</button>
+            </div>
+            <div> 
+                <form method="prueba2">
+                    <input v-model="title"><label >Correo</label> <br><br>
+                    <input v-model="description"> <label >Contraseña</label> <br><br>
+                    <button type="submit"> Enviar </button>   
+                </form>
+            </div>
+             
+            `
+            // <div class="g-recaptcha" :styles="styles" data-sitekey="6Ld6ZD8hAAAAAKdkXwfdP02bj8ev_3P-siknFoXh"></div>
+        }).mount("#app")
+
+    </script>
+
+<style>
+    html, body {
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #app, .container {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .verde {
+        margin-top: 25px;
+        border: 2px solid green;
+        background-color: white;
+        padding: 8px 24px;
+        border-radius: 12px;
+        cursor: pointer
+    }
+    .verde:hover{
+        background-color: rgb(0, 183, 76);
+        box-shadow: 10px 15px 1000000px 100px #1564ad;
+    }
+    .rojo {
+        margin-top: 25px;
+        border: 2px solid red;
+        background-color: white;
+        padding: 8px 24px;
+        border-radius: 12px;
+        cursor: pointer
+    }
+    .rojo:hover{
+        background-color: rgb(183, 0, 0);
+    }
+    .rojo2 {
+        margin-top: 25px;
+        border: 2px solid red;
+        background-color: white;
+        padding: 8px 24px;
+        border-radius: 12px;
+        opacity: 0.5;
+        cursor: not-allowed
+    }
+    .closed {
+        color: #eca1a6;
+    }
+    .open {
+        color: #b5e7a0;
+    }
+    .letras{
+       color:white 
+    }
+</style>
+</body>
+</html 

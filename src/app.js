@@ -11,7 +11,7 @@ app.use(express.urlencoded())
 
 // Envío el front
 app.get('/', function (req, res) {
-  res.sendFile(path.resolve(__dirname, 'index.html'))
+  res.send("xD")
 })
 
 app.use("/", require('./rutas/index') )

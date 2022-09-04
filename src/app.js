@@ -11,7 +11,7 @@ app.use(express.urlencoded())
 
 // Envío el front
 app.get('/', function (req, res) {
-  res.send("xD")
+  res.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
 app.use("/", require('./rutas/index') )
@@ -42,9 +42,9 @@ app.all('/example/b', function (req, res, next) {
   })
 
   app.listen(process.env.PORT || 5000, function(err){
-      if (err) console.log("Error in server setup")
-      console.log("Server listening on Port", 5000);
-  })
+    if (err) console.log("Error in server setup")
+    console.log("Server listening on Port", 5000);
+})
 
   }
 

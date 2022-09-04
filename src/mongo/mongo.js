@@ -14,6 +14,6 @@ const dbConnect = () => {
             dbConnect()
         }
     });
-};
+}; 
 
 module.exports = dbConnect

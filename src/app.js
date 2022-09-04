@@ -41,7 +41,7 @@ app.all('/example/b', function (req, res, next) {
     res.send("Esto no existe") 
   })
 
-  app.listen(5000, function(err){
+  app.listen(process.env.PORT || 5000, function(err){
       if (err) console.log("Error in server setup")
       console.log("Server listening on Port", 5000);
   })

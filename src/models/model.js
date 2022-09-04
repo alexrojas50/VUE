@@ -1,11 +1,10 @@
 import {Schema, model} from 'mongoose'
 
 const Tarea = new Schema({
-    title: {
+    nombre: {
         type: String,
-        required: true
     },
-    description: String
+    apodo: String
 })
 
 

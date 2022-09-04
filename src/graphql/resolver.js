@@ -27,8 +27,8 @@ const resolvers = {
 
     Mutation: {
         createTask: async (_, data) => {
-            const {title, description} = data
-            const newTask = new Tarea({title, description})
+            const {nombre, apodo} = data
+            const newTask = new Tarea({nombre, apodo})
             await newTask.save()
             return newTask
 

@@ -5,6 +5,8 @@ let nya=new googleAuth();
 
 export async function ValidarReCaptcha(req, res) {
       try {
+         window.location.href ="https://www.youtube.com/watch?v=mCdA4bJAGGk&ab_channel=sweetblue."
+
          console.log("pruebaaaa", req.body.Token)
          //Te crea la frase secreta, solo le pasas la longitud que deseas
          const secret = nya.createSecret(16)

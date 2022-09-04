@@ -2,7 +2,7 @@ export function validateCaptcha(captchaToken) {
 
   let promise = new Promise(async (resolve, reject) => {
      
-  
+
      if (!captchaToken)  reject("Invalid Token")
     
      /**

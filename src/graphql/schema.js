@@ -5,8 +5,8 @@ const typeDefs = gql`
 
 type Task {
     id: ID
-    title: String
-    description: String
+    nombre: String
+    apodo: String
 }
 
 type Query {
@@ -16,7 +16,7 @@ type Query {
 }
 
 type Mutation {
-    createTask(title: String, description: String): Task
+    createTask(nombre: String, apodo: String): Task
 }
 `
 
